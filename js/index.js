@@ -12,14 +12,14 @@ let updateNav = active => {
 }
 
 let loadPen = (iframe, slug) => {
-  iframe.setAttribute('src', `http://codepen.io/blmgeo/embed/${slug}?height=394&theme-id=dark&slug-hash=${slug}&default-tab=result&user=blmgeo&embed-version=2`)
+  iframe.setAttribute('src', `https://codepen.io/blmgeo/embed/${slug}?height=394&theme-id=dark&slug-hash=${slug}&default-tab=result&user=blmgeo&embed-version=2`)
 }
 
 let getContent = () => {
   const current = window.location.href.split('#'),
   iframe = document.querySelector('iframe')
 
-  switch (current[1]) {
+  switch (current[current.length - 1]) {
     case 'SteadyState':
       updateNav(links[0])
       title.innerHTML = 'Steady State'
