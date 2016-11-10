@@ -7,6 +7,7 @@ $duration: 0.2s;
 
 html, body {
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 /* NAV */
@@ -17,7 +18,7 @@ html, body {
   height: 50%;
   right: 0px;
   top: 20px;
-  padding-left: 10px;
+  padding-left: 20px;
   border-left: thin solid lighten($nav-color-inactive, 30%);
 }
 
@@ -75,4 +76,36 @@ html, body {
 .description {
   font-size: 16px;
   margin: 20px 0;
+}
+
+.pen {
+  background: #222
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    top: 100%;
+  }
+
+  100% {
+  }
+}
+
+.entering {
+  animation: enter 1s;
+}
+
+@keyframes leave {
+  0% {
+  }
+
+  100% {
+    opacity: 0;
+    top: -100%;
+  }
+}
+
+.leaving {
+  animation: leave 1s;
 }

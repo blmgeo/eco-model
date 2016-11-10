@@ -1,4 +1,5 @@
-const title = document.querySelector('.title'),
+const container = document.querySelector('.container')
+title = document.querySelector('.title'),
 description = document.querySelector('.description'),
 links = document.querySelectorAll('.nav-link')
 
@@ -11,46 +12,58 @@ let updateNav = active => {
   active.classList.add('active')
 }
 
-let loadPen = (iframe, slug) => {
-  iframe.setAttribute('src', `https://codepen.io/blmgeo/embed/${slug}?height=394&theme-id=dark&slug-hash=${slug}&default-tab=result&user=blmgeo&embed-version=2`)
-}
-
-let getContent = () => {
+let loadPen = () => {
+  let slug = ''
   const current = window.location.href.split('#'),
   iframe = document.querySelector('iframe')
+  iframe.classList.add('pen')
 
   switch (current[current.length - 1]) {
     case 'SteadyState':
       updateNav(links[0])
       title.innerHTML = 'Steady State'
       description.innerHTML = '[description]'
-      loadPen(iframe, 'PbZZqq')
+      slug = 'PbZZqq'
       break
     case 'NonSteadyState':
       updateNav(links[1])
       title.innerHTML = 'Non-Steady State'
       description.innerHTML = '[description]'
-      loadPen(iframe, 'oYbbXm')
+      slug = 'oYbbXm'
       break
     case 'Diversity':
       updateNav(links[2])
       title.innerHTML = 'Diversity'
       description.innerHTML = '[description]'
-      loadPen(iframe, 'pNggjw')
+      slug = 'pNggjw'
       break
     case 'Gompertz':
       updateNav(links[3])
       title.innerHTML = 'Gompertz'
       description.innerHTML = '[description]'
-      loadPen(iframe, 'KNVVVm')
+      slug = 'KNVVVm'
       break
     case 'Lotka-Volterra':
       updateNav(links[4])
       title.innerHTML = 'Lotka-Volterra'
       description.innerHTML = '[description]'
-      loadPen(iframe, 'Rorrab')
+      slug = 'Rorrab'
       break
   }
+
+  iframe.setAttribute('src', `https://codepen.io/blmgeo/embed/preview/${slug}?height=394&theme-id=dark&slug-hash=${slug}&default-tab=result&user=blmgeo&embed-version=2`)
+}
+
+let getContent = () => {
+  container.classList.add('leaving')
+  container.classList.remove('entering')
+  setTimeout(() => {
+    loadPen()
+  }, 500)
+  setTimeout(() => {
+    container.classList.remove('leaving')
+    container.classList.add('entering')
+  }, 1000)
 
 }
 
