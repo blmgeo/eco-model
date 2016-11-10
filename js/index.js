@@ -19,7 +19,7 @@ let getContent = () => {
   const current = window.location.href.split('#'),
   iframe = document.querySelector('iframe')
 
-  switch (current[current.length - 1]) {
+  switch (current[1]) {
     case 'SteadyState':
       updateNav(links[0])
       title.innerHTML = 'Steady State'
