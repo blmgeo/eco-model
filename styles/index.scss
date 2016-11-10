@@ -7,7 +7,6 @@ $duration: 0.2s;
 
 html, body {
   font-family: 'Roboto', sans-serif;
-  overflow: hidden;
 }
 
 /* NAV */
@@ -16,10 +15,17 @@ html, body {
   position: fixed;
   width: $sidebar-width;
   height: 50%;
-  right: 0px;
+  left: 0px;
   top: 20px;
-  padding-left: 20px;
-  border-left: thin solid lighten($nav-color-inactive, 30%);
+  padding: 0 20px;
+  border-right: thin solid lighten($nav-color-inactive, 30%);
+  text-align: right;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .nav-list {
@@ -47,6 +53,8 @@ html, body {
 
 	&:hover {
     color: $nav-color-active;
+    -webkit-transition-duration: $duration;
+            transition-duration: $duration;
 		&:before {
 			left: 0;
       right: 0;
@@ -56,6 +64,13 @@ html, body {
 
 .active {
   color: $nav-color-active;
+  &:after {
+    position: absolute;
+    content: "\00bb";
+    right: -12px;
+    -webkit-transition-duration: $duration;
+            transition-duration: $duration;
+  }
 }
 
 /* CONTENT */
@@ -65,21 +80,30 @@ html, body {
   height: auto;
   width: calc(100% - #{$sidebar-width});
   top: 20px;
+  left: $sidebar-width;
+  max-width: 800px;
   padding: 0 20px;
 }
 
 .title {
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .description {
   font-size: 16px;
   margin: 20px 0;
+  border-left: 5px solid $nav-color-active;
+  line-height: 20px;
+  padding-left: 20px;
+  text-align: justify;
+  padding: 20px;
 }
 
-.pen {
-  background: #222
+.citation {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 @keyframes enter {
