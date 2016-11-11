@@ -23,9 +23,12 @@ html, body {
 }
 
 .name {
+  color: #000;
+  display: block;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 15px;
+  text-decoration: none;
 }
 
 .nav-list {
@@ -112,6 +115,26 @@ html, body {
   margin-bottom: 20px;
 }
 
+@-webkit-keyframes enter {
+  0% {
+    opacity: 0;
+    top: 100%;
+  }
+
+  60% {
+    opacity: 1;
+    top: -10px;
+  }
+
+  80% {
+    top: 25px;
+  }
+
+  100% {
+    top: 20px;
+  }
+}
+
 @keyframes enter {
   0% {
     opacity: 0;
@@ -133,7 +156,25 @@ html, body {
 }
 
 .entering {
-  animation: enter 1s;
+  -webkit-animation: enter 1s;
+          animation: enter 1s;
+}
+
+@-webkit-keyframes leave {
+  0% {
+    opacity: 1;
+    top: 20px;
+  }
+
+  20% {
+    opacity: 1;
+    top: 100px;
+  }
+
+  100% {
+    opacity: 0;
+    top: -100%;
+  }
 }
 
 @keyframes leave {
@@ -154,5 +195,6 @@ html, body {
 }
 
 .leaving {
-  animation: leave 1s;
+  -webkit-animation: leave 1s;
+          animation: leave 1s;
 }

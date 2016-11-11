@@ -2,19 +2,9 @@
 
 //Lotka-Volterra Predator-Prey Model
 const Lotka_Volterra = {
-  prey: 0, //prey population
-  predator: 0, //predator population
-  birth: 0, //birth rate of prey
-  death: 0, //death rate of predator
-  predation: 0, //rate of  of predation interaction
-  assimilation: 0, //rate of conversion from prey to predator
   state(props) {
     if (!props) return this
-    for (let key in props) {
-      if (this.hasOwnProperty(key)) {
-        this[key] = props[key]
-      } else throw 'Property "' + key + '" does not exist.'
-    }
+    else return Object.assign(Object.create(this), props)
   },
   deltaX(lastX, lastY, increment) {
     if (!increment) const increment = 1

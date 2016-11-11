@@ -96,7 +96,7 @@ let loadPen = () => {
       of predators), but increases at a rate <em>dy=Dxydt</em> (again proportional to the product of the numbers of prey and predators).
       `
       citation.innerHTML = `
-      <a target='_blank' class='nav-link' href='hhttp://mathworld.wolfram.com/Lotka-VolterraEquations.html'>
+      <a target='_blank' class='nav-link' href='http://mathworld.wolfram.com/Lotka-VolterraEquations.html'>
         - Wolfram Mathworld
       </a> (Lotka-Volterra Equations)
       `
