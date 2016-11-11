@@ -42,7 +42,8 @@ let loadPen = () => {
       [Steady state] problems &#8230; [are] solved by equating compartment inflows to compartment outflows &#8230; A more
       difficult class of problems involves stocks that change over time, a situation arising when inflows are not in
       balance with outflows. When the inflow, F<sub>in</sub>, is not equal to the outflow F<sub>out</sub>, then the rate
-      of change of the stock is given by &Delta; M = F<sub>in</sub> - F<sub>out</sub>.
+      of change of the stock is given by &Delta; M = F<sub>in</sub> - F<sub>out</sub> &#8230; [This equation] is the starting point
+      for many non-steady-state box models.
       `
       citation.innerHTML = `
       <a target='_blank' class='nav-link' href='https://books.google.com/books/about/Consider_a_Spherical_Cow.html?id=w59Rc08_7NwC'>

@@ -6,19 +6,21 @@ const NonSteadyState = {
     if (!props) return this
     else return Object.assign(Object.create(this), props)
   },
-  flowAt(time, increment) {
-    if (!increment) const increment = 1
-    for (let i = 1; i <= time; i += increment) {
-      this.flow += this.deltaFlow * increment
+  flowAt(time) {
+    if (!this.hasOwnProperty("deltaFlow")) this.deltaFlow = 0
+    let currentFlow = this.flow
+    for (let i = 1; i <= time; i++) {
+      currentFlow += this.deltaFlow
     }
-    return this.flow
+    return currentFlow
   },
-  stockAt(time, increment) {
-    if (!increment) const increment = 1
-    for (let i = 1; i <= time; i += increment) {
-      this.stock += this.flowAt(i, this.deltaFlow, increment)
+  stockAt(time) {
+    if (!this.hasOwnProperty("deltaFlow")) this.deltaFlow = 0
+    let currentStock = this.stock
+    for (let i = 1; i <= time; i++) {
+      currentStock += (this.deltaFlow === 0) ? this.flow : this.flowAt(i)
     }
-    return this.stock
+    return currentStock
   }
 }
 
