@@ -6,6 +6,15 @@ const NonSteadyState = {
     if (!props) return this
     else return Object.assign(Object.create(this), props)
   },
+  update(props) {
+    if (props) {
+      for (let key in props) {
+        if (this.hasOwnProperty(key)) {
+          this[key] = props[key]
+        } else throw 'Property "' + key + '" does not exist.'
+      }
+    }
+  }
   flowAt(time) {
     if (!this.hasOwnProperty("deltaFlow")) this.deltaFlow = 0
     let currentFlow = this.flow
