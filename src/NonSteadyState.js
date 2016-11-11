@@ -12,7 +12,7 @@ const NonSteadyState = {
         this[key] = props[key]
       }
     }
-  }
+  },
   flowAt(time) {
     if (!this.hasOwnProperty("deltaFlow")) this.deltaFlow = 0
     let currentFlow = this.flow
