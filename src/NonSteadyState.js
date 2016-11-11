@@ -16,18 +16,16 @@ const NonSteadyState = {
     }
   },
   flowAt(time) {
-    if (!this.hasOwnProperty("deltaFlow")) this.deltaFlow = 0
     let currentFlow = this.flow
     for (let i = 1; i <= time; i++) {
-      currentFlow += this.deltaFlow
+      currentFlow += this.flow
     }
     return currentFlow
   },
   stockAt(time) {
-    if (!this.hasOwnProperty("deltaFlow")) this.deltaFlow = 0
     let currentStock = this.stock
     for (let i = 1; i <= time; i++) {
-      currentStock += (this.deltaFlow === 0) ? this.flow : this.flowAt(i)
+      currentStock += this.flow
     }
     return currentStock
   }
