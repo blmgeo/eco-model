@@ -7,22 +7,18 @@ const SteadyState = {
     else return Object.assign(Object.create(this), props)
   },
   _residence() {
-    if (this.productivity === 0) throw 'Productivity cannot be 0.'
-    this.residence = this.stock / this.productivity
+    if (this.flow === 0) throw 'Flow cannot be 0.'
+    this.residence = this.stock / this.flow
     return this.residence
   },
-  _productivity() {
+  _flow() {
     if (this.residence === 0) throw 'Residence cannot be 0.'
-    this.productivity = this.stock / this.residence
-    return this.productivity
+    this.flow = this.stock / this.residence
+    return this.flow
   },
   _stock() {
-    this.stock = this.productivity * this.residence
+    this.stock = this.flow * this.residence
     return this.stock
-  },
-  _net() {
-    this.net = this.gross - this.loss
-    return this.net
   }
 }
 
