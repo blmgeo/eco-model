@@ -9,7 +9,9 @@ const NonSteadyState = {
   update(props) {
     if (props) {
       for (let key in props) {
-        this[key] = props[key]
+        if (this.hasOwnProperty(key)) {
+          this[key] = props[key]
+        } else throw 'Property "' + key + '" does not exist.'
       }
     }
   },
