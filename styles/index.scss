@@ -1,5 +1,5 @@
 $nav-color-inactive: #999;
-$nav-color-active: #F6858F;
+$nav-color-active: #85F68F;
 $sidebar-width: 175px;
 $duration: 0.2s;
 
@@ -103,6 +103,12 @@ html, body {
 .citation {
   display: block;
   margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.pen {
+  height: 400px;
+  width: 100%;
   margin-bottom: 20px;
 }
 
