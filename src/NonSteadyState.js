@@ -14,6 +14,7 @@ const NonSteadyState = {
         } else throw 'Property "' + key + '" does not exist.'
       }
     }
+    return this
   },
   flowAt(time) {
     let currentFlow = this.flow
