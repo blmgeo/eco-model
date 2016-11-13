@@ -2,8 +2,10 @@ const container = document.querySelector('.container')
 title = document.querySelector('.title'),
 description = document.querySelector('.description'),
 citation = document.querySelector('.citation'),
-iframe = document.querySelector('iframe')
-links = document.querySelectorAll('.nav-link')
+iframe = document.querySelector('iframe'),
+links = document.querySelectorAll('.nav-link'),
+list = document.querySelector('.nav-list'),
+menu = document.querySelector('.menu-toggle')
 
 let updateNav = active => {
   links.forEach(link => {
@@ -120,5 +122,13 @@ let getContent = () => {
   }, 1000)
 
 }
+
 window.addEventListener('load', loadPen)
 window.addEventListener('popstate', getContent)
+menu.addEventListener('click', () => {
+  list.classList.toggle('open')
+})
+
+list.addEventListener('click', () => {
+  list.classList.toggle('open')
+})
