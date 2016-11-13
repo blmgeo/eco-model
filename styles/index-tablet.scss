@@ -14,14 +14,13 @@ html, body {
 @media (max-width: $breakpoint) {
   .sidebar {
     position: fixed;
-    background-color: #FFF;
+    background-color: $nav-color-active;
     height: 70px;
     left: 0;
     right: 0;
     top: 0;
     z-index: 2;
     padding: 0 20px;
-    border-bottom: thin solid lighten($nav-color-inactive, 30%);
   }
   .name {
     color: #000;
@@ -29,7 +28,7 @@ html, body {
     display: inline;
     font-size: 28px;
     font-weight: 700;
-    top: 20px;
+    top: 22px;
     text-decoration: none;
   }
 
@@ -39,7 +38,7 @@ html, body {
     height: 30px;
     width: 30px;
     right: 20px;
-    top: 17px;
+    top: 20px;
     cursor: pointer;
     &:before {
       position: relative;
@@ -50,25 +49,29 @@ html, body {
   }
 
   .nav-list {
-    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    transition-duration: 0.2s;
+    background-color: #FFF;
+    line-height: 25px;
+    text-align: center;
     &.open {
-      display: block;
-      position: fixed;
-      top: 70px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: #FFF;
-      line-height: 25px;
-      text-align: center;
       padding-top: 20px;
+      bottom: 0;
+      .nav-link {
+        display: inline;
+      }
     }
   }
 
   .nav-link {
+    display: none;
     position: relative;
     width: auto;
-    font-size: 20px;
+    font-size: 16px;
     margin: 0 auto;
     color: $nav-color-inactive;
     text-decoration: none;
