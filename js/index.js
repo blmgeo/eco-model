@@ -31,7 +31,7 @@ let loadPen = () => {
       to the <em>flow rate</em> (in or out) is called the <em>residence time</em>.
       `
       citation.innerHTML = `
-      <a target='_blank' class='nav-link' href='https://books.google.com/books/about/Consider_a_Spherical_Cow.html?id=w59Rc08_7NwC'>
+      <a target='_blank' class='ref' href='https://books.google.com/books/about/Consider_a_Spherical_Cow.html?id=w59Rc08_7NwC'>
         - Consider a Spherical Cow
       </a> (Page 23)
       `
@@ -48,7 +48,7 @@ let loadPen = () => {
       for many non-steady-state box models.
       `
       citation.innerHTML = `
-      <a target='_blank' class='nav-link' href='https://books.google.com/books/about/Consider_a_Spherical_Cow.html?id=w59Rc08_7NwC'>
+      <a target='_blank' class='ref' href='https://books.google.com/books/about/Consider_a_Spherical_Cow.html?id=w59Rc08_7NwC'>
         - Consider a Spherical Cow
       </a> (Page 111)
       `
@@ -65,7 +65,7 @@ let loadPen = () => {
       types are equally abundant.
       `
       citation.innerHTML = `
-      <a target='_blank' class='nav-link' href='https://en.wikipedia.org/wiki/Diversity_index'>
+      <a target='_blank' class='ref' href='https://en.wikipedia.org/wiki/Diversity_index'>
         - Wikipedia
       </a> (Diversity index)
       `
@@ -81,7 +81,7 @@ let loadPen = () => {
       logistic function in which both asymptotes are approached by the curve symmetrically. It is a special case of the generalised logistic function.
       `
       citation.innerHTML = `
-      <a target='_blank' class='nav-link' href='https://en.wikipedia.org/wiki/Gompertz_function'>
+      <a target='_blank' class='ref' href='https://en.wikipedia.org/wiki/Gompertz_function'>
         - Wikipedia
       </a> (Gompertz function)
       `
@@ -99,7 +99,7 @@ let loadPen = () => {
       of predators), but increases at a rate <em>dy=Dxydt</em> (again proportional to the product of the numbers of prey and predators).
       `
       citation.innerHTML = `
-      <a target='_blank' class='nav-link' href='http://mathworld.wolfram.com/Lotka-VolterraEquations.html'>
+      <a target='_blank' class='ref' href='http://mathworld.wolfram.com/Lotka-VolterraEquations.html'>
         - Wolfram Mathworld
       </a> (Lotka-Volterra Equations)
       `
