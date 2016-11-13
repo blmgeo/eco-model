@@ -76,6 +76,38 @@ html, body {
     }
   }
 
+  .ref {
+    position: relative;
+    width: auto;
+    font-size: 16px;
+    margin: 0 auto;
+    color: $nav-color-inactive;
+    text-decoration: none;
+    -webkit-transition-duration: $duration;
+            transition-duration: $duration;
+    &:before {
+  		content: "";
+  		position: absolute;
+      bottom: -2px;
+      left: 50%;
+      right: 50%;
+  		background: $nav-color-active;
+  		height: 2px;
+      -webkit-transition-duration: $duration;
+              transition-duration: $duration;
+  	}
+
+  	&:hover {
+      color: $nav-color-active;
+      -webkit-transition-duration: $duration;
+              transition-duration: $duration;
+  		&:before {
+  			left: 0;
+        right: 0;
+  		}
+  	}
+  }
+
   /* CONTENT */
 
   .container {
