@@ -88,8 +88,8 @@ html, body {
 }
 
 .entering {
-  -webkit-animation: enter 1s;
-  animation: enter 1s;
+  -webkit-animation: enter 0.5s;
+  animation: enter 0.5s;
 }
 
 @-webkit-keyframes leave {
@@ -111,6 +111,6 @@ html, body {
 }
 
 .leaving {
-  -webkit-animation: leave 1s;
-  animation: leave 1s;
+  -webkit-animation: leave 0.5s;
+  animation: leave 0.5s;
 }
