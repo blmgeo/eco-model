@@ -10,8 +10,9 @@ const Gompertz = {
     return this.asymptote * Math.exp( -1 * this.displacement * Math.exp( -1 * this.rate * time ))
   },
   curveOver(time, increment) {
-    let data = []
-    for (let i = 0; i <= time; i += increment) {
+    const inc = increment || 1,
+    data = []
+    for (let i = 0; i <= time; i += inc) {
       data.push({
         time: i,
         curveAt: this.curveAt(i)
