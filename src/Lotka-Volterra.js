@@ -6,34 +6,28 @@ const Lotka_Volterra = {
     if (!props) return this
     else return Object.assign(Object.create(this), props)
   },
-  deltaX(lastX, lastY, increment) {
-    const inc = increment || 1
-    return lastX * (this.birth - this.predation * lastY) * inc
+  deltaX(lastX, lastY) {
+    return lastX * (this.birth - this.predation * lastY)
   },
-  deltaY(lastX, lastY, increment) {
-    const inc = increment || 1
-    return lastY * (this.assimilation * lastX - this.death) * inc
+  deltaY(lastX, lastY) {
+    return lastY * (this.assimilation * lastX - this.death)
   },
-  nextX(lastX, lastY, increment) {
-    const inc = increment || 1
-    return lastX + this.deltaX(lastX, lastY, inc)
+  nextX(lastX, lastY) {
+    return lastX + this.deltaX(lastX, lastY)
   },
-  nextY(lastX, lastY, increment) {
-    const inc = increment || 1
-    return lastY + this.deltaY(lastX, lastY, inc)
+  nextY(lastX, lastY) {
+    return lastY + this.deltaY(lastX, lastY)
   },
-  popAt(time, increment) {
-    const inc = increment || 1
+  popAt(time) {
     return this.popOver(time, inc)[time]
   },
-  popOver(time, increment) {
-    const inc = increment || 1
+  popOver(time) {
     let data = [{time: 0, prey: this.prey, predator: this.predator}]
-    for (let i = 1; i <= time; i += inc) {
+    for (let i = 1; i <= time; i += 1) {
       data.push({
         time: i,
-        prey: this.nextX(data[i-1].x, data[i-1].y, inc),
-        predator: this.nextY(data[i-1].x, data[i-1].y, inc)
+        prey: this.nextX(data[i-1].prey, data[i-1].predator),
+        predator: this.nextY(data[i-1].prey, data[i-1].predator)
       })
     }
     return data
