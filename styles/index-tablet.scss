@@ -1,14 +1,8 @@
 $nav-color-inactive: #666;
-$nav-color-active: #85F68F;
+$nav-color-active: #63D46D;
 $sidebar-width: 175px;
 $duration: 0.2s;
 $breakpoint: 768px;
-
-* { box-sizing: border-box; }
-
-html, body {
-  font-family: 'Roboto', sans-serif;
-}
 
 /* SIDEBAR NAV */
 @media (max-width: $breakpoint) {
@@ -77,28 +71,28 @@ html, body {
     color: $nav-color-inactive;
     text-decoration: none;
     -webkit-transition-duration: $duration;
-            transition-duration: $duration;
+    transition-duration: $duration;
     &:before {
-  		content: "";
-  		position: absolute;
+      content: "";
+      position: absolute;
       bottom: -2px;
       left: 50%;
       right: 50%;
-  		background: $nav-color-active;
-  		height: 2px;
+      background: $nav-color-active;
+      height: 2px;
       -webkit-transition-duration: $duration;
-              transition-duration: $duration;
-  	}
+      transition-duration: $duration;
+    }
 
-  	&:hover {
+    &:hover {
       color: $nav-color-active;
       -webkit-transition-duration: $duration;
-              transition-duration: $duration;
-  		&:before {
-  			left: 0;
+      transition-duration: $duration;
+      &:before {
+        left: 0;
         right: 0;
-  		}
-  	}
+      }
+    }
 
     &.active {
       color: $nav-color-active;
@@ -107,44 +101,12 @@ html, body {
         content: "\00bb";
         right: -12px;
         -webkit-transition-duration: $duration;
-                transition-duration: $duration;
+        transition-duration: $duration;
       }
     }
   }
-
-  .ref {
-    position: relative;
-    width: auto;
-    font-size: 16px;
-    margin: 0 auto;
-    color: $nav-color-inactive;
-    text-decoration: none;
-    -webkit-transition-duration: $duration;
-            transition-duration: $duration;
-    &:before {
-  		content: "";
-  		position: absolute;
-      bottom: -2px;
-      left: 50%;
-      right: 50%;
-  		background: $nav-color-active;
-  		height: 2px;
-      -webkit-transition-duration: $duration;
-              transition-duration: $duration;
-  	}
-
-  	&:hover {
-      color: $nav-color-active;
-      -webkit-transition-duration: $duration;
-              transition-duration: $duration;
-  		&:before {
-  			left: 0;
-        right: 0;
-  		}
-  	}
-  }
+  
   /* CONTENT */
-
   .container {
     height: auto;
     width: 100%;
@@ -152,116 +114,5 @@ html, body {
     left: 0;
     max-width: 800px;
     padding: 0 20px;
-  }
-
-  .title {
-    font-size: 28px;
-    font-weight: 500;
-  }
-
-  .description {
-    font-size: 16px;
-    margin: 20px 0;
-    border-left: 5px solid $nav-color-active;
-    line-height: 20px;
-    padding-left: 20px;
-    text-align: justify;
-    padding: 20px;
-  }
-
-  .citation {
-    display: block;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-
-  .pen {
-    height: 400px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  @-webkit-keyframes enter {
-    0% {
-      opacity: 0;
-      margin-top: 100%;
-    }
-
-    60% {
-      opacity: 1;
-      margin-top: 60px;
-    }
-
-    80% {
-      margin-top: 95px;
-    }
-
-    100% {
-      margin-top: 90px;
-    }
-  }
-
-  @keyframes enter {
-    0% {
-      opacity: 0;
-      margin-top: 100%;
-    }
-
-    60% {
-      opacity: 1;
-      margin-top: 60px;
-    }
-
-    80% {
-      margin-top: 95px;
-    }
-
-    100% {
-      margin-top: 90px;
-    }
-  }
-
-  .entering {
-    -webkit-animation: enter 1s;
-            animation: enter 1s;
-  }
-
-  @-webkit-keyframes leave {
-    0% {
-      opacity: 1;
-      margin-top: 90px;
-    }
-
-    20% {
-      opacity: 1;
-      margin-top: 100px;
-    }
-
-    100% {
-      opacity: 0;
-      margin-top: -100%;
-    }
-  }
-
-  @keyframes leave {
-    0% {
-      opacity: 1;
-      margin-top: 90px;
-    }
-
-    20% {
-      opacity: 1;
-      margin-top: 100px;
-    }
-
-    100% {
-      opacity: 0;
-      margin-top: -100%;
-    }
-  }
-
-  .leaving {
-    -webkit-animation: leave 1s;
-            animation: leave 1s;
   }
 }
