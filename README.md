@@ -23,7 +23,7 @@ Find the residence time of an initialized model.
 __model._flow()__  
 Find the flow rate of an initialized model.
 
-__model.stock()__  
+__model._stock()__  
 Find the stock of an initialized model.
 
 
