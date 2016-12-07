@@ -41,7 +41,7 @@ const model = NonSteadyState.state({
 __NonSteadyState.state(props)__  
 Initialize a model with `stock`, `flow`, and/or `deltaFlow` properties.  
 
-__model.update()__  
+__model.update(props)__  
 Update the model properties after initialization if they have changed.
 
 __model.stockAt(time)__  
