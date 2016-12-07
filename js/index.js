@@ -37,7 +37,8 @@ let loadPen = () => {
     </a> (Page 23)
     `
     explanation.innerHTML = `
-
+    The example animation below illustrates the flow of carbon atoms in and out of the atmosphere. In this instance, the system contains five
+    atoms of carbon at any given time. With a residence time of one second, the inflow and outflow equal 1 atom / second.
     `
     slug = 'PbZZqq'
     break
@@ -57,7 +58,8 @@ let loadPen = () => {
     </a> (Page 111)
     `
     explanation.innerHTML = `
-
+    In this example, a pollutant's initial inflow rate is greater than its outflow rate. The inflow rate gradually decreases by 5% / 200 milliseconds, until the
+    total inflow reaches zero. At this point, the system's outflow rate is greater than its inflow rate, and the stock of pollutant decreases to zero.
     `
     slug = 'oYbbXm'
     break
@@ -77,7 +79,8 @@ let loadPen = () => {
     </a> (Diversity index)
     `
     explanation.innerHTML = `
-
+    Interact with the model below to compare several diversity indices as they are applied to the same dataset. More detail on these particular incides can be
+    found <a target='_blank' class='ref' href='http://www.coastalwiki.org/wiki/Measurements_of_biodiversity'>here</a>.
     `
     slug = 'pNggjw'
     break
@@ -96,6 +99,8 @@ let loadPen = () => {
     </a> (Gompertz function)
     `
     explanation.innerHTML = `
+    Notice how the bacteria (white squares) multiply slowly at first, then quickly, and slowly again before they reach approximately 500
+    - the upper limit defined by the gompertz function in this example.
 
     `
     slug = 'KNVVVm'
@@ -117,7 +122,8 @@ let loadPen = () => {
         </a> (Lotka-Volterra Equations)
         `
         explanation.innerHTML = `
-
+        This is a more abstract animation, wherein the rabbit represents an entire prey population and the fox represents an entire predator population. Their
+        relative heights indicate population size as they change over time (delineated by horizontal motion).
         `
         slug = 'Rorrab'
         break
