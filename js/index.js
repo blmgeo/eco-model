@@ -100,7 +100,7 @@ let loadPen = () => {
     `
     explanation.innerHTML = `
     Notice how the bacteria (white squares) multiply slowly at first, then quickly, and slowly again before they reach approximately 500
-    - the upper limit defined by the gompertz function in this example.
+    - the upper limit defined by the gompertz function in this example. This is indicative of the behavior seen in sigmoidal functions.
 
     `
     slug = 'KNVVVm'
@@ -123,7 +123,8 @@ let loadPen = () => {
         `
         explanation.innerHTML = `
         This is a more abstract animation, wherein the rabbit represents an entire prey population and the fox represents an entire predator population. Their
-        relative heights indicate population size as they change over time (delineated by horizontal motion).
+        relative heights indicate population size as they change over time (delineated by horizontal motion). Parameter values used herein may not reflect real
+        population dynamics between rabbits and foxes.
         `
         slug = 'Rorrab'
         break
