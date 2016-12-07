@@ -7,16 +7,19 @@ const SteadyState = {
     else return Object.assign(Object.create(this), props)
   },
   _residence() {
-    if (this.flow === 0) throw 'Flow cannot be 0.'
+    if(this.residence) return this.residence
+    if (!this.flow) throw 'Flow not defined.'
     this.residence = this.stock / this.flow
     return this.residence
   },
   _flow() {
-    if (this.residence === 0) throw 'Residence cannot be 0.'
+    if(this.flow) return this.flow
+    if (!this.residence) throw 'Residence not defined.'
     this.flow = this.stock / this.residence
     return this.flow
   },
   _stock() {
+    if(this.stock) return this.stock
     this.stock = this.flow * this.residence
     return this.stock
   }
