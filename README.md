@@ -18,12 +18,35 @@ __SteadyState.state(props)__
 Initialize a model with `residence`, `flow`, and/or `stock` properties.  
 
 __model._residence()__  
-Find the residence time of an initialized model.
+Calculate the residence time of an initialized model.
 
 __model._flow()__  
-Find the flow rate of an initialized model.
+Calculate the flow rate of an initialized model.
 
 __model._stock()__  
-Find the stock of an initialized model.
+Calculate the stock of an initialized model.
 
+## Non-Steady State
+
+A non-steady-state model is initialized by calling the `state` method and passing an object with `stock`, `flow`, and/or `deltaFlow` properties, e.g.  
+~~~
+const model = NonSteadyState.state({
+  stock: 1000,
+  flow: 10,
+  deltaFlow: -0.05 * 10
+})
+~~~
+
+### Methods  
+__NonSteadyState.state(props)__  
+Initialize a model with `stock`, `flow`, and/or `deltaFlow` properties.  
+
+__model.update()__  
+Update the model properties after initialization if they have changed.
+
+__model.stockAt(time)__  
+Calculate the amount of stock in a system at a given time.
+
+__model.flowAt(time)__  
+Calculate the total flow rate (F<sub>in</sub> - F<sub>out</sub>) of a system at a given time.
 
