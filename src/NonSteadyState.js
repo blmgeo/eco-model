@@ -17,13 +17,14 @@ const NonSteadyState = {
     return this
   },
   flowAt(time) {
-    let currentFlow = this.flow
-    currentFlow += (this.deltaFlow * time)
+    let currentFlow = this.flow || 0,
+    deltaFlow = this.deltaFlow || 0
+    currentFlow += (deltaFlow * time)
     return currentFlow
   },
   stockAt(time) {
-    let currentStock = this.stock
-    currentStock += (this.flow * time)
+    let currentStock = this.stock || 0
+    currentStock += (this.flowAt(time) * time)
     return currentStock
   }
 }
