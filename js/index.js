@@ -17,13 +17,28 @@ let updateNav = active => {
   active.classList.add('active')
 }
 
-let loadPen = () => {
+let loadPage = () => {
   let slug = ''
-  const location = window.location.href.split('#')[1] || 'SteadyState'
+  const location = window.location.href.split('#')[1] || 'About'
+  iframe.style.display = 'block'
+  quote.style.display = 'block'
+  citation.style.display = 'block'
 
   switch (location) {
-    case 'SteadyState':
+    case 'About':
     updateNav(links[0])
+    quote.style.display = 'none'
+    iframe.style.display = 'none'
+    citation.style.display = 'none'
+    title.innerHTML = 'About This Project'
+    explanation.innerHTML = `
+    This website is intended to demonstrate the functionality of the EcoModel.js library*, which is documented <a class='nav-link' href='https://www.github.com/blmgeo/eco-model' target='_blank'>on GitHub</a>. Animations and brief descriptions are provided to highlight the library's functionality, especially for those who are not familiar with ecological modeling and analysis. If viewing this project on a mobile device, animations are best viewed in landscape orientation.
+    <br><br>
+    * Please note that the library is currently under major development.
+    `
+    break
+    case 'SteadyState':
+    updateNav(links[1])
     title.innerHTML = 'Steady State'
     quote.innerHTML = `
     When the flow of a substance into a lake, the atmosphere, an animal, or any other "box" is equal
@@ -43,7 +58,7 @@ let loadPen = () => {
     slug = 'PbZZqq'
     break
     case 'NonSteadyState':
-    updateNav(links[1])
+    updateNav(links[2])
     title.innerHTML = 'Non-Steady State'
     quote.innerHTML = `
     [Steady state] problems &#8230; [are] solved by equating compartment inflows to compartment outflows &#8230; A more
@@ -64,7 +79,7 @@ let loadPen = () => {
     slug = 'oYbbXm'
     break
     case 'Diversity':
-    updateNav(links[2])
+    updateNav(links[3])
     title.innerHTML = 'Diversity'
     quote.innerHTML = `
     A diversity index is a quantitative measure that reflects how many different types (such as species)
@@ -85,7 +100,7 @@ let loadPen = () => {
     slug = 'pNggjw'
     break
     case 'Gompertz':
-    updateNav(links[3])
+    updateNav(links[4])
     title.innerHTML = 'Gompertz'
     quote.innerHTML = `
     A Gompertz curve or Gompertz function, named after Benjamin Gompertz, is a sigmoid function. It is a type of mathematical model
@@ -99,14 +114,14 @@ let loadPen = () => {
     </a> (Gompertz function)
     `
     explanation.innerHTML = `
-    Notice how the bacteria (white squares) multiply slowly at first, then quickly, and slowly again before they reach approximately 500
+    Notice how the bacteria (white squares) multiply slowly at first, then quickly, and slowly again before they reach a population of approximately 500
     - the upper limit defined by the gompertz function in this example. This is indicative of the behavior seen in sigmoidal functions.
 
     `
     slug = 'KNVVVm'
     break
     case 'Lotka-Volterra':
-    updateNav(links[4])
+    updateNav(links[5])
     title.innerHTML = 'Lotka-Volterra'
     quote.innerHTML = `
     The Lotka-Volterra equations describe an ecological predator-prey (or parasite-host) model which assumes that, for a set of fixed positive
@@ -122,9 +137,9 @@ let loadPen = () => {
         </a> (Lotka-Volterra Equations)
         `
         explanation.innerHTML = `
-        This is a more abstract animation, wherein the rabbit represents an entire prey population and the fox represents an entire predator population. Their
-        relative heights indicate population size as they change over time (delineated by horizontal motion). Parameter values used herein may not reflect real
-        population dynamics between rabbits and foxes.
+        This is a more abstract animation, wherein the rabbit image represents an entire prey population and the fox image represents an entire predator population. Their
+        relative heights indicate population size as they change over time (delineated by horizontal motion). Parameter values used herein may not reflect actual
+        dynamics between rabbit and fox populations.
         `
         slug = 'Rorrab'
         break
@@ -137,7 +152,7 @@ let loadPen = () => {
       container.classList.remove('entering')
       container.classList.add('leaving')
       setTimeout(() => {
-        loadPen()
+        loadPage()
       }, 400)
       setTimeout(() => {
         container.classList.remove('leaving')
@@ -146,7 +161,7 @@ let loadPen = () => {
 
     }
 
-    window.addEventListener('load', loadPen)
+    window.addEventListener('load', loadPage)
     window.addEventListener('popstate', getContent)
     menu.addEventListener('click', () => {
       list.classList.toggle('open')
