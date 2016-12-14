@@ -53,7 +53,7 @@ let loadPage = () => {
     `
     explanation.innerHTML = `
     The example animation below illustrates the flow of carbon atoms in and out of the atmosphere. In this instance, the system contains five
-    atoms of carbon at any given time. With a residence time of one second, the inflow and outflow equal 1 atom / second.
+    atoms of carbon at any given time. With an inflow and outflow equal to one atom per second, the system's residence time is five seconds.
     `
     slug = 'PbZZqq'
     break
