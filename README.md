@@ -11,7 +11,6 @@ const model = SteadyState.state({
   stock: 1000
 })
 ~~~
-In this case, `._residence()` yields the residence time of the model. 
 
 ### Methods  
 __SteadyState.state(props)__  
