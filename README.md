@@ -1,8 +1,13 @@
-# eco-model
+## Introduction
+This project is composed of modules that each address a specific problem-space in ecosystem modeling. Jump to a section below to learn more:
+- [Steady States](#steady)
+- [Non-Steady States](#non-steady)
+- [Sigmoids](#sigmoids)
+- [Lotka-Volterra](#lotka)
+- [Diversity Indices](#diversity)
 
-Ecosystem modeling and analysis in JavaScript. 
 
-## Steady State  
+## <a name='steady'></a>Steady State  
 
 A steady-state model is initialized by calling the `state` method and passing an object with `residence`, `flow`, and/or `stock` properties, e.g.  
 ~~~
@@ -25,7 +30,7 @@ Calculate the flow rate of an initialized model.
 __model._stock()__  
 Calculate the stock of an initialized model.
 
-## Non-Steady State
+## <a name='non-steady'></a>Non-Steady State
 
 A non-steady-state model is initialized by calling the `state` method and passing an object with `stock`, `flow`, and/or `deltaFlow` properties, e.g.  
 ~~~
