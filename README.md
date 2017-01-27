@@ -7,7 +7,7 @@ This project is composed of modules that each address a specific problem-space i
 - [Diversity Indices](#diversity)
 
 
-## <a href='#steady'></a>Steady State  
+## <a name='#steady'></a>Steady State  
 
 A steady-state model is initialized by calling the `state` method and passing an object with `residence`, `flow`, and/or `stock` properties, e.g.  
 ~~~
@@ -30,7 +30,7 @@ Calculate the flow rate of an initialized model.
 __model._stock()__  
 Calculate the stock of an initialized model.
 
-## <a href='#non-steady'></a>Non-Steady State
+## <a name='#non-steady'></a>Non-Steady State
 
 A non-steady-state model is initialized by calling the `state` method and passing an object with `stock`, `flow`, and/or `deltaFlow` properties, e.g.  
 ~~~
