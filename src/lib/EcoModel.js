@@ -1,12 +1,12 @@
 var Diversity = require('../Diversity'),
-Gompertz = require('../Gompertz'),
+Sigmoid = require('../Sigmoid'),
 Lotka_Volterra = require('../Lotka-Volterra'),
 NonSteadyState = require('../NonSteadyState'),
 SteadyState = require('../SteadyState')
 
 module.exports = {
   Diversity,
-  Gompertz,
+  Sigmoid,
   Lotka_Volterra,
   NonSteadyState,
   SteadyState

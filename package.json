@@ -1,0 +1,32 @@
+{
+  "name": "eco-model",
+  "version": "1.0.0",
+  "description": "ecosystem modeling and analysis",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blmgeo/eco-model.git"
+  },
+  "keywords": [
+    "ecosystem",
+    "modeling",
+    "analysis",
+    "javascript"
+  ],
+  "author": "Brandon Mailhiot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blmgeo/eco-model/issues"
+  },
+  "homepage": "https://github.com/blmgeo/eco-model#readme"
+}
