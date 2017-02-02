@@ -1,28 +1,41 @@
 'use strict'
 
-//steady state box models
-const SteadyState = {
-  state(props) {
-    if (!props) return this
-    else return Object.assign(Object.create(this), props)
-  },
-  _residence() {
-    if(this.residence) return this.residence
-    if (!this.flow) throw 'Flow not defined.'
-    this.residence = this.stock / this.flow
-    return this.residence
-  },
-  _flow() {
-    if(this.flow) return this.flow
-    if (!this.residence) throw 'Residence not defined.'
-    this.flow = this.stock / this.residence
-    return this.flow
-  },
-  _stock() {
-    if(this.stock) return this.stock
-    this.stock = this.flow * this.residence
-    return this.stock
-  }
+class SteadyState {
+    /**
+    * @constructor
+    * @param {Object} props - residence, flow, and stock properties.
+    */
+    constructor(props) {
+        this._residence = props.residence
+        this._flow = props.flow
+        this._stock = props.stock
+    }
+    /**
+    * @return {number} residence time
+    */
+    residence() {
+        if(this._residence) return this._residence
+        if (!this._flow) throw 'flow not defined.'
+        this._residence = this._stock / this._flow
+        return this._residence
+    }
+    /**
+    * @return {number} flow rate
+    */
+    flow() {
+        if(this._flow) return this._flow
+        if (!this._residence) throw 'residence not defined.'
+        this._flow = this._stock / this._residence
+        return this._flow
+    }
+    /**
+    * @return {number} stock
+    */
+    stock() {
+        if(this._stock) return this._stock
+        this._stock = this._flow * this._residence
+        return this._stock
+    }
 }
 
 module.exports = SteadyState
