@@ -40,7 +40,7 @@ class Diversity {
     */
     margalef(species) {
         species = species.filter(el => el > 0)
-        let S = Diversity.richness(species),
+        let S = this.richness(species),
         N = species.reduce(sum),
         diversity = (S - 1) / Math.log(N)
         return diversity
@@ -51,7 +51,7 @@ class Diversity {
     */
     menhinick(species) {
         species = species.filter(el => el > 0)
-        let S = Diversity.richness(species),
+        let S = this.richness(species),
         N = species.reduce(sum),
         diversity = S / Math.sqrt(N)
         return diversity
@@ -90,7 +90,7 @@ class Diversity {
     * @return {number} 1 - Simpson diversity index
     */
     simpsonDiversity(species) {
-        let diversity = 1 - Diversity.simpson(species)
+        let diversity = 1 - this.simpson(species)
         return diversity
     }
     /**
@@ -98,7 +98,7 @@ class Diversity {
     * @return {number} Simpson Dominance index
     */
     simpsonDominance(species) {
-        let diversity = 1 / Diversity.simpson(species)
+        let diversity = 1 / this.simpson(species)
         return diversity
     }
 }

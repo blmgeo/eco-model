@@ -7,9 +7,10 @@ class Lotka_Volterra {
     constructor(props) {
         this.birth = props.birth
         this.death = props.death
-        this.predation = props.predation
         this.prey = props.prey
         this.predator = props.predator
+        this.assimilation = props.assimilation
+        this.predation = props.predation
     }
     /**
     * Calculate the change in prey population.
@@ -55,14 +56,18 @@ class Lotka_Volterra {
     * @param {number} time - Time in the future.
     */
     popOver(time) {
-        let data = [{time: 0, prey: this.prey, predator: this.predator}]
-            for (let i = 1; i <= time; i += 1) {
-                data.push({
-                    time: i,
-                    prey: this.nextX(data[i-1].prey, data[i-1].predator),
-                    predator: this.nextY(data[i-1].prey, data[i-1].predator)
-                })
-            }
+        let data = [{
+            time: 0,
+            prey: this.prey,
+            predator: this.predator
+        }]
+        for (let i = 1; i <= time; i += 1) {
+            data.push({
+                time: i,
+                prey: this.nextX(data[i-1].prey, data[i-1].predator),
+                predator: this.nextY(data[i-1].prey, data[i-1].predator)
+            })
+        }
         return data
     }
 }
