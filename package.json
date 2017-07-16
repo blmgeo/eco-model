@@ -6,8 +6,11 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
   "devDependencies": {
+    "chai": "^4.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
     "mocha": "^3.2.0"
   },
   "scripts": {
@@ -15,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blmgeo/eco-model.git"
+    "url": "https://github.com/blmgeo/eco-model.git"
   },
   "keywords": [
     "ecosystem",
