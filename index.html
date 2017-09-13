@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EcoModel</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="demo/style.css"><!--different for non-index-->
+    </head>
+    <body>
+        <div class='container'>
+        <!--header-->
+        <header>
+            <nav class='wrapper'>
+
+                <a href='index.html'>
+                    <h1 class='logo'>
+                        <span>Eco</span>Model
+                    </h1>
+                </a>
+
+                <div class='menu'>
+                    MENU <span>≡</span>
+                </div>
+            </nav><!--wrapper-->
+        </header>
+
+        <!--banner-->
+        <section class='banner'>
+            <div class='banner-img'></div>
+            <div class='wrapper'>
+
+                <h2 class='title'>
+                    <span>Eco</span>Model
+                </h2>
+
+                <p>
+                    A light-weight JavaScript library for environmental data analysis and ecosystem modeling.
+                </p>
+            </div><!--wrapper-->
+        </section>
+
+        <!--content-->
+        <section class='content'>
+            <div class='wrapper'>
+
+                <div class='grid'>
+                    <div class='grid-item'>
+                        <div class='content-img-container'>
+                            <img class='content-img' src='demo/img/diversity.png' alt='diversity venn-diagram'>
+                        </div>
+                        <a href='https://github.com/blmgeo/eco-model/blob/master/src/lib/Diversity.js' target='_blank'>
+                            <h3 class='content-title'>Diversity</h3>
+                        </a>
+                        <p class='content-info'>
+                            The diversity module provides calculations for various diversity indices.
+                            A diversity index is a numeric measurement of unique species 
+                            that exist within a ecological community.
+                        </p>
+                    </div>
+                    
+                    <div class='grid-item'>
+                        <div class='content-img-container'>
+                            <img class='content-img' src='demo/img/lotka.png' alt='lotka yin-yang'>
+                        </div>
+                        <a href='https://github.com/blmgeo/eco-model/blob/master/src/lib/Lotka-Volterra.js' target='_blank'>
+                            <h3 class='content-title'>Predator-Prey Models</h3>
+                        </a>
+                        <p class='content-info'>
+                            The Lotka-Volterra module provides calculations for predator-prey dynamics.
+                            A predator-prey relationship is characterized by the dynamic balance between the two
+                            populations over time.
+                        </p>
+                    </div>
+
+                    <div class='grid-item'>
+                        <div class='content-img-container'>
+                            <img class='content-img' src='demo/img/steady.png' alt='steady balanced'>
+                        </div>
+                        <a href='https://github.com/blmgeo/eco-model/blob/master/src/lib/SteadyState.js' target='_blank'>
+                            <h3 class='content-title'>Steady State Systems</h3>
+                        </a>    
+                        <p class='content-info'>
+                            The Steady State module can model real-world steady state processes.
+                            A system is considered steady state when it remains unchanged after
+                            a dynamic process has acted upon it.
+                        </p>
+                    </div>
+
+                    <div class='grid-item'>
+                        <div class='content-img-container'>
+                            <img class='content-img' src='demo/img/nonsteady.png' alt='nonsteady unbalanced'>
+                        </div>
+                        <a href='https://github.com/blmgeo/eco-model/blob/master/src/lib/NonSteadyState.js' target='_blank'>
+                            <h3 class='content-title'>Non-Steady State Systems</h3>
+                        </a>
+                        <p class='content-info'>
+                            The Non-Steady State module models dynamic systems.
+                            A system is non-steady state if it is changed by 
+                            dynamic processes over time.
+                        </p>
+                    </div>
+
+                    <div class='grid-item'>
+                        <div class='content-img-container'>
+                            <img class='content-img' src='demo/img/sigmoid.png' alt='sigmoid s-shaped'>
+                        </div>
+                        <a href='https://github.com/blmgeo/eco-model/blob/master/src/lib/Sigmoid.js' target='_blank'>
+                            <h3 class='content-title'>Population Growth Functions</h3>
+                        </a>
+                        <p class='content-info'>
+                            The Sigmoid module currently supports S-shaped growth models.
+                            Sigmoids are characterized by slow initial growth,
+                            then rapid growth that evens out.
+                        </p>
+                    </div>
+                </div>
+            </div><!--wrapper-->
+        </section>
+
+    </div>
+    </body>
+</html>
