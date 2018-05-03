@@ -1,96 +1,101 @@
-const sum = (a, b) => a + b;
+import FP from 'functional.js';
 
-const factorial = (n) => {
-  if (n < 0) return undefined;
-  if (n === 0) return 1;
-  let num = n;
-  for (let i = n - 1; i > 0; i -= 1) num *= i;
-  return num;
-};
+export default (species) => {
+  const sum = FP.reduce((a, b) => a + b)
 
-const filter = s => s.filter(el => el > 0);
+  const factorial = (n) => {
+    if (n === 1) return n;
+    if (n === 0) return 1;
+    if (n < 0) return undefined;
 
-/**
-* @constructor
-*/
-class Diversity {
-  constructor(species) {
-    this.species = species;
-  }
+    let result = factorial(n - 1) * n;
+    return result;
+  };
+
+  const s = species.filter(el => el > 0)
+  const N = sum(s)
 
   /**
-  * @return {number} Number of types of species in sample
+  * @return {number} Species richness of sample
   */
-  richness() {
-    return filter(this.species).length;
+  const richness = () => {
+    return s.length;
   }
+
   /**
   * @return {number} Berger-Parker diversity index
   */
-  bergerParker() {
-    const species = filter(this.species);
-    const max = Math.max.apply(null, species);
-    const N = species.reduce(sum);
-    return max / N;
+  const bergerParker = () => {
+    return Math.max.apply(null, s) / N;
   }
+
   /**
   * @return {number} Brillouin diversity index
   */
-  brillouin() {
-    const species = filter(this.species);
-    const N = species.reduce(sum);
-    const logN = n => Math.log(factorial(n));
-    return (logN(N) - species.map(n => logN(n)).reduce(sum)) / N;
+  const brillouin = () => {
+    const log = FP.compose(Math.log, factorial)
+    const logMap = FP.map(log)
+    const sumLogMap = FP.compose(sum, logMap)
+    return (log(N) - sumLogMap(s)) / N;
   }
+
   /**
   * @return {number} Margalef diversity index
   */
-  margalef() {
-    const species = filter(this.species);
-    const richness = this.richness(species);
-    const N = species.reduce(sum);
-    return (richness - 1) / Math.log(N);
+  const margalef = () => {
+    return (richness(s) - 1) / Math.log(N);
   }
+
   /**
   * @return {number} Menhinick diversity index
   */
-  menhinick() {
-    const species = filter(this.species);
-    const richness = this.richness(species);
-    const N = species.reduce(sum);
-    return richness / Math.sqrt(N);
+  const menhinick = () => {
+    return richness(s) / Math.sqrt(N);
   }
+
   /**
   * @return {number} Shannon diversity index
   */
-  shannon() {
-    const species = filter(this.species);
-    const N = species.reduce(sum);
-    const rows = species.map(el => (el / N) * Math.log(el / N));
-    return -1 * rows.reduce(sum);
+  const shannon = () => {
+    const rows = FP.map(el => (el / N) * Math.log(el / N))
+    const sumRows = FP.compose(sum, rows)
+    return -1 * sumRows(s);
   }
+
   /**
   * @return {number} Simpson diversity index
   */
-  simpson() {
-    const species = filter(this.species);
-    const N = species.reduce(sum);
-    return species.map(n => Math.pow(n / N, 2)).reduce(sum);
+  const simpson = () => {
+    const powMap = FP.map(n => Math.pow(n / N, 2));
+    const sumPowMap = FP.compose(sum, powMap);
+    return sumPowMap(s);
   }
+
   /**
   * @param {Array} Species - Abundance of each species
   * @return {number} 1 - Simpson diversity index
   */
-  simpsonDiversity() {
-    return 1 - this.simpson(this.species);
+  const simpsonDiversity = () => {
+    return 1 - simpson(s);
   }
+
   /**
   * @param {Array} Species - Abundance of each species
   * @return {number} Simpson Dominance index
   */
-  simpsonDominance() {
-    return 1 / this.simpson(this.species);
+  const simpsonDominance = () => {
+    return 1 / simpson(s);
+  }
+
+  return {
+    richness,
+    brillouin,
+    bergerParker,
+    margalef,
+    menhinick,
+    simpson,
+    simpsonDiversity,
+    simpsonDominance,
+    shannon,
   }
 }
-
-module.exports = Diversity;

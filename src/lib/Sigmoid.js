@@ -1,7 +1,4 @@
-/**
-* @constructor
-*/
-class Sigmoid {
+export default () => {
   /**
   * Gompertz function
   * @param {number} a - Asymptote of the function
@@ -9,10 +6,12 @@ class Sigmoid {
   * @param {number} c - Growth rate
   * @param {number} t - time in the future
   */
-  static gompertz(a, b, c, t) {
+  const gompertz = (a, b, c, t) => {
     const exp = (x, y) => Math.exp(-1 * x * y);
     return a * exp(b, exp(c, t));
   }
-}
 
-module.exports = Sigmoid;
+  return {
+    gompertz,
+  }
+}

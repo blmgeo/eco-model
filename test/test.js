@@ -1,9 +1,10 @@
 const assert = require('chai').assert;
-const EcoModel = require('../src/EcoModel');
+const EcoModel = require('../EcoModel').default;
 
 // Diversity Test Cases
 describe('Diversity module', () => {
-  const model = new EcoModel.Diversity([1, 2, 3, 4, 5]);
+  const model = EcoModel.Diversity([1, 2, 3, 4, 5]);
+
   describe('#bergerParker(species)', () => {
     it('should return the correct Berger-Parker index', () => {
       const expected = (1 / 3).toFixed(5);
@@ -79,18 +80,11 @@ describe('Diversity module', () => {
 
 // Lotka-Volterra Test Cases
 describe('Lotka-Volterra module', () => {
-  const model = new EcoModel.LotkaVolterra({
-    birth: 1,
-    death: 1,
-    prey: 1,
-    predator: 1,
-    assimilation: 1,
-    predation: 1,
-  });
+  const model = new EcoModel.LotkaVolterra([1,1,1,1,1,1]);
 
   describe('#popAt(1)', () => {
     it('should return the correct populations at time=1', () => {
-      const result = model.popAt(1);
+      const result = model.populationAt(1);
       const expected = {
         time: 1,
         prey: 1,
@@ -102,7 +96,7 @@ describe('Lotka-Volterra module', () => {
 
   describe('#popOver(1)', () => {
     it('should return the correct populations up to time=1', () => {
-      const result = model.popOver(1);
+      const result = model.populationOver(1);
       const expected = [{
         time: 0,
         prey: 1,
@@ -119,11 +113,7 @@ describe('Lotka-Volterra module', () => {
 
 // NonSteadyState Test Cases
 describe('NonSteadyState module', () => {
-  const model = new EcoModel.NonSteadyState({
-    flow: 1,
-    stock: 1,
-    deltaFlow: 1,
-  });
+  const model = new EcoModel.NonSteadyState([1,1,1]);
 
   describe('#stockAt(1)', () => {
     it('should return the correct stock at time=1', () => {
@@ -160,11 +150,7 @@ describe('NonSteadyState module', () => {
 
 // SteadyState Test Cases
 describe('SteadyState module', () => {
-  const model = new EcoModel.SteadyState({
-    flow: 1,
-    stock: 1,
-    residence: 1,
-  });
+  const model = new EcoModel.SteadyState([1,1,1]);
 
   describe('#residence()', () => {
     it('should return the correct residence time', () => {

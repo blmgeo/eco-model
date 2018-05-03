@@ -1,73 +1,83 @@
-class LotkaVolterra {
-  /**
-  * @constructor
-  */
-  constructor(props) {
-    this.birth = props.birth;
-    this.death = props.death;
-    this.prey = props.prey;
-    this.predator = props.predator;
-    this.assimilation = props.assimilation;
-    this.predation = props.predation;
-  }
+import FP from 'functional.js';
+
+// props is object with properties: birth, death, prey, predator, assimilation, predation
+export default (props) => {
+  const [ birth, death, prey, predator, assimilation, predation ] = props
+
   /**
   * Calculate the change in prey population.
   * @param {number} lastX - Previous prey population.
   * @param {number} lastY - Previous predator population.
   */
-  deltaX(lastX, lastY) {
-    return lastX * (this.birth - (this.predation * lastY));
+  const deltaX = (lastX, lastY) => {
+    return lastX * (birth - (predation * lastY));
   }
+
   /**
   * Calculate the change in predator population.
   * @param {number} lastX - Previous prey population.
   * @param {number} lastY - Previous predator population.
   */
-  deltaY(lastX, lastY) {
-    return lastY * (this.assimilation * (lastX - this.death));
+  const deltaY = (lastX, lastY) => {
+    return lastY * (assimilation * (lastX - death));
   }
+
   /**
   * Calculate the next prey population.
   * @param {number} lastX - Previous prey population.
   * @param {number} lastY - Previous predator population.
   */
-  nextX(lastX, lastY) {
-    return lastX + this.deltaX(lastX, lastY);
+  const nextX = (lastX, lastY) => {
+    return lastX + deltaX(lastX, lastY);
   }
+
   /**
   * Calculate the next predator population.
   * @param {number} lastX - Previous prey population.
   * @param {number} lastY - Previous predator population.
   */
-  nextY(lastX, lastY) {
-    return lastY + this.deltaY(lastX, lastY);
+  const nextY = (lastX, lastY) => {
+    return lastY + deltaY(lastX, lastY);
   }
-  /**
-  * Find the predator and prey population at a given time.
-  * @param {number} time - Time in the future.
-  */
-  popAt(time) {
-    return this.popOver(time)[time];
-  }
+
   /**
   * Find the predator and prey population over a period of time.
-  * @param {number} time - Time in the future.
+  * @param {number} time - Time in the future (units unspecified).
   */
-  popOver(time) {
-    const data = [{
+  const populationOver = time => {
+    const population = [{
       time: 0,
-      prey: this.prey,
-      predator: this.predator,
+      prey,
+      predator,
     }];
+
     for (let i = 1; i <= time; i += 1) {
-      data.push({
+      let p = population[i - 1];
+
+      population.push({
         time: i,
-        prey: this.nextX(data[i - 1].prey, data[i - 1].predator),
-        predator: this.nextY(data[i - 1].prey, data[i - 1].predator),
+        prey: nextX(p.prey, p.predator),
+        predator: nextY(p.prey, p.predator),
       });
     }
-    return data;
+
+    return population;
+  }
+
+  /**
+  * Find the predator and prey population at a given time.
+  * @param {number} time - Time in the future (units unspecified).
+  */
+  const populationAt = time => {
+    return populationOver(time)[time];
+  }
+
+  return {
+    deltaX,
+    deltaY,
+    nextX,
+    nextY,
+    populationAt,
+    populationOver,
   }
 }
-
-module.exports = LotkaVolterra;

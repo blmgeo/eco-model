@@ -1,39 +1,38 @@
-class SteadyState {
-  /**
-  * @constructor
-  * @param {Object} props - residence, flow, and stock properties.
-  */
-  constructor(props) {
-    this.r = props.residence;
-    this.f = props.flow;
-    this.s = props.s;
-  }
+export default (props) => {
+  const [r, f, s] = props;
+
   /**
   * @return {number} residence time
   */
-  residence() {
-    if (this.r) return this.r;
-    if (!this.f) throw new Error('Flow not defined.');
-    else this.r = this.s / this.f;
-    return this.r;
+  const residence = () => {
+    if (r) return r;
+    if (!f) throw new Error('Flow not defined.');
+    else r = s / f;
+    return r;
   }
+
   /**
   * @return {number} flow rate
   */
-  flow() {
-    if (this.f) return this.f;
-    if (!this.r) throw new Error('Residence not defined.');
-    else this.f = this.s / this.r;
-    return this.f;
+  const flow = () => {
+    if (f) return f;
+    if (!r) throw new Error('Residence not defined.');
+    else f = s / r;
+    return f;
   }
+
   /**
-  * @return {number} s
+  * @return {number} stock
   */
-  stock() {
-    if (this.s) return this.s;
-    this.s = this.f * this.r;
-    return this.s;
+  const stock = () => {
+    if (s) return s;
+    s = f * r;
+    return s;
+  }
+
+  return {
+    residence,
+    flow,
+    stock,
   }
 }
-
-module.exports = SteadyState;
