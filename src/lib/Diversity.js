@@ -1,15 +1,12 @@
 import FP from 'functional.js';
 
 export default (species) => {
-  const sum = FP.reduce((a, b) => a + b)
+  const sum = FP.reduce((a, b) => a + b);
+  const subtract = FP.reduce((a, b) => a - b);
 
-  const factorial = (n) => {
-    if (n === 1) return n;
-    if (n === 0) return 1;
-    if (n < 0) return undefined;
-
-    let result = factorial(n - 1) * n;
-    return result;
+  const factorial = (n, accum = 1) => {
+    if (n < 2) return accum;
+    return factorial(n - 1, accum * n);
   };
 
   const s = species.filter(el => el > 0)
@@ -26,7 +23,7 @@ export default (species) => {
   * @return {number} Berger-Parker diversity index
   */
   const bergerParker = () => {
-    return Math.max.apply(null, s) / N;
+    return Math.max(...s) / N;
   }
 
   /**

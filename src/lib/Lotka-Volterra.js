@@ -45,23 +45,23 @@ export default (props) => {
   * @param {number} time - Time in the future (units unspecified).
   */
   const populationOver = time => {
-    const population = [{
-      time: 0,
-      prey,
-      predator,
-    }];
+    const population = Object.freeze([{ prey, predator }]);
 
-    for (let i = 1; i <= time; i += 1) {
-      let p = population[i - 1];
+    const nextPop = p => {
+      let { prey, predator } = p[p.length - 1];
 
-      population.push({
-        time: i,
-        prey: nextX(p.prey, p.predator),
-        predator: nextY(p.prey, p.predator),
-      });
+      return Object.freeze({
+        prey: nextX(prey, predator),
+        predator: nextY(prey, predator),
+      })
     }
 
-    return population;
+    const pushNextPop = p => {
+      if (p.length >= time) return p
+      return pushNextPop(Object.freeze([...p, nextPop(p)]))
+    }
+
+    return pushNextPop(population);
   }
 
   /**

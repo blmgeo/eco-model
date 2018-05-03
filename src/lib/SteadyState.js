@@ -7,8 +7,7 @@ export default (props) => {
   const residence = () => {
     if (r) return r;
     if (!f) throw new Error('Flow not defined.');
-    else r = s / f;
-    return r;
+    return s / f;
   }
 
   /**
@@ -17,8 +16,7 @@ export default (props) => {
   const flow = () => {
     if (f) return f;
     if (!r) throw new Error('Residence not defined.');
-    else f = s / r;
-    return f;
+    return s / r;
   }
 
   /**
@@ -26,8 +24,7 @@ export default (props) => {
   */
   const stock = () => {
     if (s) return s;
-    s = f * r;
-    return s;
+    return f * r;
   }
 
   return {
