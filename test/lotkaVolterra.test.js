@@ -1,4 +1,4 @@
-const EcoModel = require('../EcoModel').default;
+const EcoModel = require('../dist/EcoModel').default;
 
 // Lotka-Volterra Test Cases
 const model = new EcoModel.LotkaVolterra(1,1,1,1,1,1);

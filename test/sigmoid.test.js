@@ -1,5 +1,4 @@
-const assert = require('chai').assert;
-const EcoModel = require('../EcoModel').default;
+const EcoModel = require('../dist/EcoModel').default;
 
 // Sigmoid Test Cases
 const model = new EcoModel.Sigmoid;

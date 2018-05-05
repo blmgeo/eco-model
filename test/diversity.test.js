@@ -1,4 +1,4 @@
-const EcoModel = require('../EcoModel').default;
+const EcoModel = require('../dist/EcoModel').default;
 
 // Diversity Test Cases
 const model = EcoModel.Diversity([1, 2, 3, 4, 5]);

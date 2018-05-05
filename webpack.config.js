@@ -13,7 +13,7 @@ module.exports = {
   target: 'node',
   externals: nodeModules,
   output: {
-    path: path.resolve(__dirname),
+    path: path.resolve(__dirname + '/dist'),
     filename: 'EcoModel.js',
     library: 'EcoModel',
     libraryTarget: 'commonjs2'

@@ -1,4 +1,4 @@
-const EcoModel = require('../EcoModel').default;
+const EcoModel = require('../dist/EcoModel').default;
 
 // NonSteadyState Test Cases
   const model = new EcoModel.NonSteadyState(1,1,1);
