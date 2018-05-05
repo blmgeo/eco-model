@@ -1,7 +1,6 @@
 import { range, pipe } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-// props is object with properties: birth, death, prey, predator, assimilation, predation
 export default (birth, death, prey, predator, assimilation, predation) => {
   /**
   * Calculate the change in prey population.
@@ -40,13 +39,13 @@ export default (birth, death, prey, predator, assimilation, predation) => {
   }
 
   /**
-  * Find the predator and prey population over a period of time.
-  * @param {number} time - Time in the future (units unspecified).
+  * Get the population over time.
+  * @param {number} t - Time in the future (units unspecified).
   */
-  const populationOver = time => {
+  const populationOver = t => {
     const population = [{ prey, predator }]
 
-    const nextPop = x => {
+    const nextPopulation = x => {
       const { prey, predator } = population[x]
 
       return {
@@ -55,19 +54,19 @@ export default (birth, death, prey, predator, assimilation, predation) => {
       }
     }
 
-    range(0, time)
-    .pipe(map(x => nextPop(x)))
+    range(0, t)
+    .pipe(map(x => nextPopulation(x)))
     .subscribe(p => population.push(p))
 
     return population
   }
 
   /**
-  * Find the predator and prey population at a given time.
-  * @param {number} time - Time in the future (units unspecified).
+  * Get the population at a specific time.
+  * @param {number} t - Time in the future (units unspecified).
   */
-  const populationAt = time => {
-    return populationOver(time)[time]
+  const populationAt = t => {
+    return populationOver(t)[t]
   }
 
   return {

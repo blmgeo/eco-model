@@ -1,7 +1,7 @@
 export default (stock, flow, deltaFlow) => {
   /**
   * Calculate flow at a given time.
-  * @params {number} time - Time in the future.
+  * @param {number} time - Time in the future.
   * @return {number} flow
   */
   const flowAt = time => {
@@ -10,7 +10,7 @@ export default (stock, flow, deltaFlow) => {
   
   /**
   * Calculate stock at a given time.
-  * @params {number} time - Time in the future
+  * @param {number} time - Time in the future
   * @return {number} stock
   */
   const stockAt = time => {

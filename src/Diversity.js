@@ -1,3 +1,4 @@
+// species -> array of species population count
 export default (species) => {
   const sum = (x, y) => x + y
 
@@ -6,7 +7,10 @@ export default (species) => {
     return factorial(x - 1, a * x)
   }
 
+  // Species populations over 0
   const s = species.filter(x => x > 0)
+
+  // Sum of species populations
   const N = s.reduce(sum)
 
   /**
@@ -36,14 +40,14 @@ export default (species) => {
   * @return {number} Margalef diversity index
   */
   const margalef = () => {
-    return (richness(s) - 1) / Math.log(N)
+    return (richness() - 1) / Math.log(N)
   }
 
   /**
   * @return {number} Menhinick diversity index
   */
   const menhinick = () => {
-    return richness(s) / Math.sqrt(N)
+    return richness() / Math.sqrt(N)
   }
 
   /**
@@ -61,19 +65,17 @@ export default (species) => {
   }
 
   /**
-  * @param {Array} Species - Abundance of each species
   * @return {number} 1 - Simpson diversity index
   */
   const simpsonDiversity = () => {
-    return 1 - simpson(s)
+    return 1 - simpson()
   }
 
   /**
-  * @param {Array} Species - Abundance of each species
   * @return {number} Simpson Dominance index
   */
   const simpsonDominance = () => {
-    return 1 / simpson(s)
+    return 1 / simpson()
   }
 
   return {
