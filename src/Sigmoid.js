@@ -7,8 +7,8 @@ export default () => {
   * @param {number} t - time in the future
   */
   const gompertz = (a, b, c, t) => {
-    const exp = (x, y) => Math.exp(-1 * x * y);
-    return a * exp(b, exp(c, t));
+    const exp = (x, y) => Math.exp(-1 * x * y)
+    return a * exp(b, exp(c, t))
   }
 
   return {

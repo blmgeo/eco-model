@@ -1,71 +1,63 @@
-import FP from 'functional.js';
-
 export default (species) => {
-  const sum = FP.reduce((a, b) => a + b);
-  const subtract = FP.reduce((a, b) => a - b);
+  const sum = (x, y) => x + y
 
-  const factorial = (n, accum = 1) => {
-    if (n < 2) return accum;
-    return factorial(n - 1, accum * n);
-  };
+  const factorial = (x, a = 1) => {
+    if (x < 2) return a
+    return factorial(x - 1, a * x)
+  }
 
-  const s = species.filter(el => el > 0)
-  const N = sum(s)
+  const s = species.filter(x => x > 0)
+  const N = s.reduce(sum)
 
   /**
   * @return {number} Species richness of sample
   */
   const richness = () => {
-    return s.length;
+    return s.length
   }
 
   /**
   * @return {number} Berger-Parker diversity index
   */
   const bergerParker = () => {
-    return Math.max(...s) / N;
+    return Math.max(...s) / N
   }
 
   /**
   * @return {number} Brillouin diversity index
   */
   const brillouin = () => {
-    const log = FP.compose(Math.log, factorial)
-    const logMap = FP.map(log)
-    const sumLogMap = FP.compose(sum, logMap)
-    return (log(N) - sumLogMap(s)) / N;
+    const log = n => Math.log(factorial(n))
+    const sumLog = s.map(x => log(x)).reduce(sum)
+    return (log(N) - sumLog) / N
   }
 
   /**
   * @return {number} Margalef diversity index
   */
   const margalef = () => {
-    return (richness(s) - 1) / Math.log(N);
+    return (richness(s) - 1) / Math.log(N)
   }
 
   /**
   * @return {number} Menhinick diversity index
   */
   const menhinick = () => {
-    return richness(s) / Math.sqrt(N);
+    return richness(s) / Math.sqrt(N)
   }
 
   /**
   * @return {number} Shannon diversity index
   */
   const shannon = () => {
-    const rows = FP.map(el => (el / N) * Math.log(el / N))
-    const sumRows = FP.compose(sum, rows)
-    return -1 * sumRows(s);
+    return -1 * s.map(x => (x / N) * Math.log(x / N)).reduce(sum)
   }
 
   /**
   * @return {number} Simpson diversity index
   */
   const simpson = () => {
-    const powMap = FP.map(n => Math.pow(n / N, 2));
-    const sumPowMap = FP.compose(sum, powMap);
-    return sumPowMap(s);
+    return s.map(x => Math.pow(x / N, 2)).reduce(sum)
   }
 
   /**
@@ -73,7 +65,7 @@ export default (species) => {
   * @return {number} 1 - Simpson diversity index
   */
   const simpsonDiversity = () => {
-    return 1 - simpson(s);
+    return 1 - simpson(s)
   }
 
   /**
@@ -81,7 +73,7 @@ export default (species) => {
   * @return {number} Simpson Dominance index
   */
   const simpsonDominance = () => {
-    return 1 / simpson(s);
+    return 1 / simpson(s)
   }
 
   return {
