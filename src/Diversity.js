@@ -32,7 +32,7 @@ export default (species) => {
   */
   const brillouin = () => {
     const log = n => Math.log(factorial(n))
-    const sumLog = s.map(x => log(x)).reduce(sum)
+    const sumLog = s.map(log).reduce(sum)
     return (log(N) - sumLog) / N
   }
 

@@ -39,7 +39,7 @@ export default (birth, death, prey, predator, assimilation, predation) => {
   }
 
   /**
-  * Get the population over time.
+  * Get the population from time 0 to time T.
   * @param {number} t - Time in the future (units unspecified).
   */
   const populationOver = t => {
@@ -62,7 +62,7 @@ export default (birth, death, prey, predator, assimilation, predation) => {
   }
 
   /**
-  * Get the population at a specific time.
+  * Get the population at time T.
   * @param {number} t - Time in the future (units unspecified).
   */
   const populationAt = t => {
